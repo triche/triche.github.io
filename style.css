@@ -1,0 +1,87 @@
+/*
+  Modern, classic, and professional CSS for personal webpage
+*/
+
+:root {
+  --primary-font: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --accent-color: #2a4365;
+  --background: #f8f9fa;
+  --text-color: #222;
+  --card-bg: #fff;
+  --border-radius: 12px;
+  --shadow: 0 2px 16px rgba(44, 62, 80, 0.07);
+}
+
+body {
+  font-family: var(--primary-font);
+  background: var(--background);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.header {
+  background: var(--accent-color);
+  color: #fff;
+  padding: 2.5rem 0 1.5rem 0;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.header p {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.container {
+  max-width: 700px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.section p, .section ul {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0 0 0.75rem 0;
+}
+
+ul {
+  padding-left: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+  .header h1 {
+    font-size: 2rem;
+  }
+}
