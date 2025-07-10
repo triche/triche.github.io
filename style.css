@@ -22,8 +22,8 @@ body {
 }
 
 .header {
-  background: var(--accent-color);
-  color: #fff;
+  background: #fff;
+  color: var(--accent-color);
   padding: 2.5rem 0 1.5rem 0;
   text-align: center;
   box-shadow: var(--shadow);
@@ -80,18 +80,22 @@ ul {
 .profile-header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .headshot {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid #fff;
   box-shadow: 0 2px 12px rgba(44, 62, 80, 0.10);
   background: #e2e8f0;
+  flex-shrink: 0;
 }
 
 @media (max-width: 600px) {
@@ -104,9 +108,10 @@ ul {
   .profile-header {
     flex-direction: column;
     gap: 1rem;
+    text-align: center;
   }
   .headshot {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
   }
 }
