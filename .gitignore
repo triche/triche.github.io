@@ -1,0 +1,47 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.DocumentRevisions-V100
+.TemporaryItems
+.apdisk
+.com.apple.timemachine.donotpresent
+
+# Common editor/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Temporary/cache directories
+.cache/
+.parcel-cache/
+.sass-cache/
+.tmp/
+tmp/
+
+# Build output (for static bundlers if used)
+dist/
+build/
+
+# Package managers (uncomment if you prefer not to commit lockfiles)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# SSL keys or local certs (keep secrets out of the repo)
+*.pem
+*.key

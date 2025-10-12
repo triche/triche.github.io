@@ -122,6 +122,34 @@ strong {
   font-weight: 600;
 }
 
+.code-block {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #f6f8fa;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  color: #111;
+}
+
+.code-object {
+  width: 100%;
+  min-height: 220px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f6f8fa;
+}
+
+.gpg-section h2 {
+  margin-bottom: 0.5rem;
+}
+
+.small {
+  font-size: 0.95rem;
+  color: #444;
+}
+
 @media (max-width: 600px) {
   .container {
     padding: 1rem;

@@ -224,10 +224,53 @@
             >
           </p>
         </section>
+        <section class="section gpg-section">
+          <h2>GPG Public Key</h2>
+          <pre id="gpg-key" class="code-block">Loading key…</pre>
+          <p class="small">If the key doesn't display, you can download it directly: <a href="docs/taylor.gpg">docs/taylor.gpg</a></p>
+        </section>
       </main>
     </div>
+
     <footer class="footer">
       <p>&copy; 2025 Taylor L. Riché</p>
     </footer>
+
+    <script>
+      (function () {
+        const el = document.getElementById('gpg-key');
+        const section = document.querySelector('.gpg-section');
+        const path = 'docs/taylor.gpg';
+        if (!el || !section) return;
+
+        const useObjectFallback = () => {
+          const obj = document.createElement('object');
+          obj.setAttribute('data', path);
+          obj.setAttribute('type', 'text/plain');
+          obj.className = 'code-object';
+          // Replace the <pre> with the <object> so it renders even when fetch is blocked for file://
+          el.replaceWith(obj);
+        };
+
+        // If opened directly from disk (file://), many browsers block fetch.
+        if (window.location.protocol === 'file:') {
+          useObjectFallback();
+          return;
+        }
+
+        fetch(path, { cache: 'no-store' })
+          .then(r => {
+            if (!r.ok) throw new Error('Failed to load key');
+            return r.text();
+          })
+          .then(text => {
+            el.textContent = text;
+          })
+          .catch(() => {
+            // As a fallback on HTTP(S), try the <object> embed too
+            useObjectFallback();
+          });
+      })();
+    </script>
   </body>
 </html>
