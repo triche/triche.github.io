@@ -150,6 +150,22 @@ strong {
   color: #444;
 }
 
+/* Contact icons */
+.contact-lines {
+  line-height: 2;
+}
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #22543d; /* match heading green */
+}
+.contact-item .icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
+
 @media (max-width: 600px) {
   .container {
     padding: 1rem;

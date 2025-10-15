@@ -210,24 +210,69 @@
         </section>
         <section class="section" id="contact">
           <h2>Contact</h2>
-          <p>
-            Email:
-            <a href="mailto:taylor.riche@gmail.com">taylor.riche@gmail.com</a
-            ><br />
-            LinkedIn: <a href="https://linkedin.com/in/taylor-l-riche/">linkedin.com/in/taylor-l-riche/</a>
+          <p class="contact-lines">
+            <span class="contact-item">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M2 5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5zm2 0 8 6 8-6H4zm16 2.667-8 6-8-6V19h16V7.667z"
+                />
+              </svg>
+              <a href="mailto:taylor.riche@gmail.com">taylor.riche@gmail.com</a>
+            </span>
             <br />
-            GitHub: <a href="https://github.com/triche">github.com/triche</a>
+            <span class="contact-item">
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v2"
+                />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+              <a href="https://linkedin.com/in/taylor-l-riche/"
+                >linkedin.com/in/taylor-l-riche/</a
+              >
+            </span>
             <br />
-            Resume:
-            <a href="https://www.taylorlriche.com/docs/Resume.pdf"
-              >taylorlriche.com/docs/Resume.pdf</a
-            >
+            <span class="contact-item">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.2-3.37-1.2-.45-1.16-1.1-1.47-1.1-1.47-.9-.62.07-.61.07-.61 1 .07 1.52 1.04 1.52 1.04.89 1.52 2.33 1.08 2.9.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.9-1.29 2.74-1.02 2.74-1.02.56 1.37.22 2.39.11 2.64.64.7 1.02 1.59 1.02 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"
+                />
+              </svg>
+              <a href="https://github.com/triche">github.com/triche</a>
+            </span>
+            <br />
+            <span class="contact-item">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 2.5L18.5 9H14zM8 13h8v2H8zm0-4h5v2H8zm0 8h8v2H8z"
+                />
+              </svg>
+              <a href="https://www.taylorlriche.com/docs/Resume.pdf"
+                >taylorlriche.com/docs/Resume.pdf</a
+              >
+            </span>
           </p>
         </section>
         <section class="section gpg-section">
           <h2>GPG Public Key</h2>
           <pre id="gpg-key" class="code-block">Loading key…</pre>
-          <p class="small">If the key doesn't display, you can download it directly: <a href="docs/taylor.gpg">docs/taylor.gpg</a></p>
+          <p class="small">
+            If the key doesn't display, you can download it directly:
+            <a href="docs/taylor.gpg">docs/taylor.gpg</a>
+          </p>
         </section>
       </main>
     </div>
@@ -238,32 +283,32 @@
 
     <script>
       (function () {
-        const el = document.getElementById('gpg-key');
-        const section = document.querySelector('.gpg-section');
-        const path = 'docs/taylor.gpg';
+        const el = document.getElementById("gpg-key");
+        const section = document.querySelector(".gpg-section");
+        const path = "docs/taylor.gpg";
         if (!el || !section) return;
 
         const useObjectFallback = () => {
-          const obj = document.createElement('object');
-          obj.setAttribute('data', path);
-          obj.setAttribute('type', 'text/plain');
-          obj.className = 'code-object';
+          const obj = document.createElement("object");
+          obj.setAttribute("data", path);
+          obj.setAttribute("type", "text/plain");
+          obj.className = "code-object";
           // Replace the <pre> with the <object> so it renders even when fetch is blocked for file://
           el.replaceWith(obj);
         };
 
         // If opened directly from disk (file://), many browsers block fetch.
-        if (window.location.protocol === 'file:') {
+        if (window.location.protocol === "file:") {
           useObjectFallback();
           return;
         }
 
-        fetch(path, { cache: 'no-store' })
-          .then(r => {
-            if (!r.ok) throw new Error('Failed to load key');
+        fetch(path, { cache: "no-store" })
+          .then((r) => {
+            if (!r.ok) throw new Error("Failed to load key");
             return r.text();
           })
-          .then(text => {
+          .then((text) => {
             el.textContent = text;
           })
           .catch(() => {
